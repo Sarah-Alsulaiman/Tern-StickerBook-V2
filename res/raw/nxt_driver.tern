@@ -1,0 +1,132 @@
+
+import doStartMotor(motor, power)
+
+import doStopMotor(motor)
+
+import sendBeep()
+
+import sendSing()
+
+import sendGrowl()
+
+def doBeep():
+{
+   sendBeep()
+   wait 2000
+}
+
+def doSing():
+{
+   sendSing()
+   wait 2000
+}
+
+def doGrowl():
+{
+   sendGrowl()
+   wait 2000
+}
+
+def doForward():
+{
+   doStartMotor(0, 50)
+   doStartMotor(2, 50)
+   wait 1000
+   doStopMotor(0)
+   doStopMotor(2)
+   wait 1000   
+}
+
+def doBackward():
+{
+   doStartMotor(0, -50)
+   doStartMotor(2, -50)
+   wait 1000
+   doStopMotor(0)
+   doStopMotor(2)
+   wait 1000
+}
+
+def doLeft():
+{
+   doStartMotor(2, 75)
+   doStartMotor(0, -40)
+   wait 800
+   doStopMotor(0)
+   doStopMotor(2)
+   wait 1000
+}
+
+def doRight():
+{
+   doStartMotor(0, 75)
+   doStartMotor(2, -40)
+   wait 800
+   doStopMotor(0)
+   doStopMotor(2)
+   wait 1000
+}
+
+def doSpin():
+{
+   doStartMotor(0, 75)
+   doStartMotor(2, -75)
+   wait 2667
+   doStopMotor(0)
+   doStopMotor(2)
+   wait 1000
+}
+
+def doShake():
+{
+   a = 0
+   pa = 100
+   pb = -100
+   while a < 10:
+   {
+      doStartMotor(0, pa)
+      doStartMotor(2, pb)
+      wait 100
+      pa = pa * -1
+      pb = pb * -1
+      a = a + 1
+   }
+   doStopMotor(0)
+   doStopMotor(2)
+   wait 1000
+}
+
+def doWiggle():
+{
+   a = 0
+   pa = 1
+   pb = -1
+   while a < 5:
+   {
+      doStartMotor(0, 100)
+      doStartMotor(2, 10)
+      wait 200
+      doStartMotor(0, 10)
+      doStartMotor(2, 100)
+      wait 200
+      a = a + 1
+   }
+   doStopMotor(0)
+   doStopMotor(2)
+   wait 1000
+}
+
+def doStarSkill():
+{
+   wait 1000
+}
+
+def doDiamondSkill():
+{
+   wait 1000
+}
+
+def doEnd():
+{
+   wait 200
+}
