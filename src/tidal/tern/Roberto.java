@@ -56,7 +56,7 @@ public class Roberto implements Robot {
    
    public static boolean tsensor = false;
    
-   private boolean isPlaying = false;
+   public static boolean isPlaying = false;
    
    private long last_tick = 0;
    
@@ -106,7 +106,7 @@ public class Roberto implements Robot {
    
    public void draw(Canvas canvas) {
       
-	  if (this.isPlaying) {
+	  if (isPlaying) {
 		  
 		  long elapsed = (System.currentTimeMillis() - last_tick);
 	      
@@ -115,7 +115,7 @@ public class Roberto implements Robot {
 	    		  last_tick = System.currentTimeMillis();
 	    		  frame++;
 	    	  } else {
-	    		  this.isPlaying = false; 
+	    		  isPlaying = false; 
 	    	  }
 	      }
 	      
@@ -132,7 +132,7 @@ public class Roberto implements Robot {
       this.fcount = frame_count;
       this.frame = 1;
       this.last_tick = 0;
-      this.isPlaying = true;
+      isPlaying = true;
       view.repaint();
    }
    

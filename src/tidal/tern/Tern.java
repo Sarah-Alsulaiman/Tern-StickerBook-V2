@@ -121,17 +121,22 @@ public class Tern extends Activity {
    }
    
    
+//----------------------------------------------------------------   
+// onBackPressed
+//----------------------------------------------------------------   
    @Override   
    public void onBackPressed() {
 	   
 	   if (view.running)
 		   view.running = false;
 	   
+	   Roberto.isPlaying = false;
 	   view.program = null;
 	   view.repaint();
 	   
 	   return;  
    }
+   
    
    protected void captureBitmap() {
       // Storage for captured bitmaps      

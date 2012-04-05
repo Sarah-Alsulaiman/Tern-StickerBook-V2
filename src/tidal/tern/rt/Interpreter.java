@@ -53,6 +53,8 @@ public class Interpreter implements Runnable {
    /** List of debuggers to send trace events */
    protected List<Debugger> debuggers;
 
+   /** Keeps multiple threads from running simultaneously */
+   protected boolean running = false;
 
 
    public Interpreter() {
@@ -109,7 +111,9 @@ public class Interpreter implements Runnable {
       if (robot != null) {
          robot.allStop();
       }
-      sleep(100);
+      while (this.running) {
+    	  sleep(50);
+      }
    }
    
    
@@ -241,6 +245,7 @@ public class Interpreter implements Runnable {
       
       long temp, clock = System.currentTimeMillis();
       boolean stopped = false;
+      this.running = true;
 
       while (!stopped) {
          
@@ -266,6 +271,7 @@ public class Interpreter implements Runnable {
          clock = System.currentTimeMillis();
          updateTimers((int)(clock - temp));
       }
+      this.running = false;
    }
    
    
