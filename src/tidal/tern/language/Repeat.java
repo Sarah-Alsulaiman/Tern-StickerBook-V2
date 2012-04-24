@@ -39,7 +39,38 @@ public class Repeat extends Statement {
 
 
    public void compile(PrintWriter out, boolean debug) throws CompileException {
-      if (hasConnection("pstart") && hasConnection("nstart")) {
+    
+	   String limit = "1000";
+	   
+	   if (hasConnection("param")) { 
+		   
+		   limit = getConnection("param").getName();
+		   
+	   }
+	   
+	   
+	   /*if(! hasConnection("param")) {
+		   out.println("while true:");
+		   out.println("{");
+		   out.println("wait 500");
+		   compileNext(out, debug);
+		   out.println("}");
+	   }*/
+	   
+	  // else if (hasConnection("param")) {
+		   out.println("a = 0");
+		   out.println("while a < " + limit + ":" );
+		   out.println("{");
+		   out.println("wait 500");
+		   out.println("a = a + 1");
+		   compileNext(out, debug);
+		   out.println("}");
+		   
+		   
+	 //  }
+	   
+	   
+	   /** if (hasConnection("pstart") && hasConnection("nstart")) {
          out.println("while true:");
          out.println("{");
          if (debug) out.println("   trace " + getCompileID());
@@ -57,6 +88,6 @@ public class Repeat extends Statement {
          out.println("   wait 500");
          out.println("}");
          Statement.NEST--;
-      }
-   }
+      } */
+   } 
 }

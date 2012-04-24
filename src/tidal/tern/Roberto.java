@@ -61,6 +61,7 @@ public class Roberto implements Robot {
    private long last_tick = 0;
    
    
+   
    public Roberto(ProgramView view) {
       this.view = view;
    }
@@ -138,36 +139,42 @@ public class Roberto implements Robot {
    
    
    public int doJump(int [] args) {
+	  ProgramView.sounds.play(ProgramView.jump_sound, 1.0f, 1.0f, 0, 0, 1.0f);
       changePicture("jump", 5);
       return 0;
    }
    
    
    public int doRun(int [] args) {
+	  ProgramView.sounds.play(ProgramView.run_sound, 1.0f, 1.0f, 0, 0, 1.0f);
       changePicture("run", 1);
       return 0;
    }
    
    
    public int doWalk(int [] args) {
+	  ProgramView.sounds.play(ProgramView.walk_sound, 1.0f, 1.0f, 0, 0, 1.0f);
       changePicture("walk", 5);
       return 0;
    }
    
    
    public int doWiggle(int [] args) {
+	  ProgramView.sounds.play(ProgramView.wiggle_sound, 1.0f, 1.0f, 0, 0, 1.0f);
       changePicture("wiggle", 6);
       return 0;
    }
    
    
    public int doSleep(int [] args) {
+	  ProgramView.sounds.play(ProgramView.sleep_sound, 1.0f, 1.0f, 0, 0, 1.0f);
       changePicture("sleep", 1);
       return 0;
    }
    
    
    public int doSit(int [] args) {
+	  ProgramView.sounds.play(ProgramView.sit_sound, 1.0f, 1.0f, 0, 0, 1.0f);
       changePicture("sit", 1);
       return 0;
    }
@@ -180,12 +187,14 @@ public class Roberto implements Robot {
    
    
    public int doStand(int [] args) {
+	  ProgramView.sounds.play(ProgramView.stand_sound, 1.0f, 1.0f, 0, 0, 1.0f);
       changePicture("stand", 1);
       return 0;
    }
    
    
    public int doSpin(int [] args) {
+	  ProgramView.sounds.play(ProgramView.spin_sound, 1.0f, 1.0f, 0, 0, 1.0f);
       changePicture("spin", 6);
       return 0;
    }
@@ -196,7 +205,8 @@ public class Roberto implements Robot {
    }
    
    
-   public int getTouchSensor(int [] args) {      
+   public int getTouchSensor(int [] args) {    
+	   //ProgramView.sounds.play(ProgramView.wait_sound, 1.0f, 1.0f, 0, 0, 1.0f);
 	   int result = tsensor ? 1 : 0;      
 	   tsensor = false;      
 	   return result;   

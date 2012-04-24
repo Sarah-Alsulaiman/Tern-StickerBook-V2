@@ -130,28 +130,62 @@
       </code>
    </statement>
 
-
+   
+   
               
    <!-- BEGIN REPEAT -->
-   <statement code="171" name="Begin Repeat">
-      <socket dx="-0.1" dy="1.42" name="prev" />
-      <plug dx="1.5" dy="1.42" name="next" />
-      <code>
-         while true:
-         {
-      </code>
+   <statement code="171" name="Begin Repeat"  class="tidal.tern.language.Repeat">
+      <socket dx="-0.1" dy="0" name="prev" />
+      <plug dx="1.5" dy="0" name="next" />
+      <param dx="0" dy="-1.42" name="param" />
    </statement>
 
 
+	<!-- PARAMETER TWO -->
+   <statement code="327" name="2">
+      <socket name="prev" />
+      <plug dx="1.5" dy="1.42" name="next" />
+      <code>
+         2
+      </code>
+   </statement>
+   
+   
+   <!-- PARAMETER THREE -->
+   <statement code="205" name="3">
+      <socket name="prev" />
+      <plug dx="1.5" dy="1.42" name="next" />
+      <code>
+         3
+      </code>
+   </statement>
+              
+              
+    <!-- PARAMETER FOUR -->
+   <statement code="103" name="4">
+      <socket name="prev" />
+      <plug dx="1.5" dy="1.42" name="next" />
+      <code>
+         4
+      </code>
+   </statement>
+              
+              
+    <!-- PARAMETER FIVE -->
+   <statement code="31" name="5">
+      <socket name="prev" />
+      <plug dx="1.5" dy="1.42" name="next" />
+      <code>
+         5
+      </code>
+   </statement>
+              
               
    <!-- END REPEAT -->
    <statement code="179" name="End Repeat">
-      <socket dx="0" dy="1.42" name="prev" />
-      <plug dx="1.5" dy="1.42" name="next" />
-      <code>
-            wait 100
-         }
-      </code>
+      <socket dx="0" dy="0" name="prev" />
+      <plug dx="1.5" dy="0" name="next" />
+      
    </statement>
 
 
