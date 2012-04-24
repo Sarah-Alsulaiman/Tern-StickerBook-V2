@@ -73,8 +73,8 @@
    
    
       
-   <!-- SIT (song) -->
-   <statement code="397" name="Sit">
+   <!-- YAWN (song) -->
+   <statement code="397" name="Yawn">
       <socket name="prev" />
       <plug dx="3.4" dy="0" name="next" />
       <code>

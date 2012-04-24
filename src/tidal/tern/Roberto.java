@@ -181,6 +181,7 @@ public class Roberto implements Robot {
    
    
    public int doYawn(int [] args) {
+	  ProgramView.sounds.play(ProgramView.yawn_sound, 1.0f, 1.0f, 0, 0, 1.0f);
       changePicture("yawn", 1);
       return 0;
    }

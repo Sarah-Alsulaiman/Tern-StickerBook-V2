@@ -43,21 +43,8 @@ public class Repeat extends Statement {
 	   String limit = "1000";
 	   
 	   if (hasConnection("param")) { 
-		   
 		   limit = getConnection("param").getName();
-		   
 	   }
-	   
-	   
-	   /*if(! hasConnection("param")) {
-		   out.println("while true:");
-		   out.println("{");
-		   out.println("wait 500");
-		   compileNext(out, debug);
-		   out.println("}");
-	   }*/
-	   
-	  // else if (hasConnection("param")) {
 		   out.println("a = 0");
 		   out.println("while a < " + limit + ":" );
 		   out.println("{");
@@ -66,8 +53,7 @@ public class Repeat extends Statement {
 		   compileNext(out, debug);
 		   out.println("}");
 		   
-		   
-	 //  }
+
 	   
 	   
 	   /** if (hasConnection("pstart") && hasConnection("nstart")) {

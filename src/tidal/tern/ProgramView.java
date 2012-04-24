@@ -33,7 +33,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Canvas;
 import android.graphics.Bitmap;
-import android.graphics.Paint.Style;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.content.Context;
@@ -56,7 +55,7 @@ public class ProgramView extends View implements Debugger, Runnable {
    
    public static final String TAG = "Tern";
    
-   private int POP_SOUND = 0;
+   //private int POP_SOUND = 0;
    public static final int COMPILE_SUCCESS = 100;
    public static final int COMPILE_FAILURE = 101;
    
@@ -81,7 +80,7 @@ public class ProgramView extends View implements Debugger, Runnable {
    protected Robot robot;
 
    /** Sound effects */
-   protected SoundPool sounds;
+   public static SoundPool sounds;
    
    /** Link back to the main activity */
    protected Tern tern = null;
@@ -114,6 +113,18 @@ public class ProgramView extends View implements Debugger, Runnable {
    protected TButton config;
    
    protected boolean running = false;
+   
+   public static int walk_sound;
+   public static int jump_sound;
+   public static int spin_sound;
+   public static int wiggle_sound;
+   public static int run_sound;
+   public static int sit_sound;
+   public static int stand_sound;
+   public static int sleep_sound;
+   public static int wait_sound;
+   public static int yawn_sound;
+   
 
    
    public ProgramView(Context context) {
@@ -156,8 +167,19 @@ public class ProgramView extends View implements Debugger, Runnable {
       //------------------------------------------------------
       // Initialize sound effects
       //------------------------------------------------------
-      this.sounds = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
-      POP_SOUND = sounds.load(context, R.raw.pop, 1);
+      sounds = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
+      //POP_SOUND = sounds.load(context, R.raw.pop, 1);
+      walk_sound   = sounds.load(context, R.raw.walk, 1);
+      jump_sound   = sounds.load(context, R.raw.jump, 1);
+      spin_sound   = sounds.load(context, R.raw.spin, 1);
+      wiggle_sound = sounds.load(context, R.raw.wiggle, 1);
+      sit_sound    = sounds.load(context, R.raw.sit, 1);
+      stand_sound  = sounds.load(context, R.raw.stand, 1);
+      run_sound    = sounds.load(context, R.raw.run, 1);
+      sleep_sound  = sounds.load(context, R.raw.sleep, 1);
+      wait_sound   = sounds.load(context, R.raw.wait_for_tap, 1);
+      yawn_sound   = sounds.load(context, R.raw.yawn, 1);
+      
 
       //------------------------------------------------------
       // Create UI buttons
