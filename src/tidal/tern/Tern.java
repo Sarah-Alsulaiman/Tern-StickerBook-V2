@@ -131,7 +131,9 @@ public class Tern extends Activity {
 		   view.running = false;
 	   
 	   Roberto.isPlaying = false;
+	   view.interp.stop();
 	   view.program = null;
+	   view.errorParse = false;
 	   view.repaint();
 	   
 	   return;  

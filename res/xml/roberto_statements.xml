@@ -7,9 +7,13 @@
    </statement>
    
    
-   <!-- END -->
-   <statement code="369" name="End">
+    <!-- END -->
+   <statement code="93" name="Stop">
       <socket name="prev" />
+      <code>
+         doSit()
+         wait 2000
+      </code>
    </statement>
    
    
@@ -185,7 +189,9 @@
    <statement code="179" name="End Repeat">
       <socket dx="0" dy="0" name="prev" />
       <plug dx="1.5" dy="0" name="next" />
-      
+      <code>
+         }
+      </code>
    </statement>
 
 
@@ -195,5 +201,6 @@
       <socket name="prev" />
       <plug dx="4.5" dy="0" name="next" />
    </statement>
+   
               
 </statements>

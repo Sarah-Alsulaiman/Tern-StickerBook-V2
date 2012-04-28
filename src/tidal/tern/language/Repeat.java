@@ -51,7 +51,7 @@ public class Repeat extends Statement {
 		   out.println("wait 500");
 		   out.println("a = a + 1");
 		   compileNext(out, debug);
-		   out.println("}");
+		  // out.println("}");
 		   
 
 	   

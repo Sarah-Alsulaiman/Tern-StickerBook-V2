@@ -54,6 +54,8 @@ public class TextCompiler extends TernAnalyzer {
    
    private LinkedList<Integer> labels;
    
+   public static String parseError = "";
+   
 
    public TextCompiler() {
       this.out = new StringWriter();
@@ -76,8 +78,10 @@ public class TextCompiler extends TernAnalyzer {
          parser.parse();
          return new StringReader(this.out.toString());
       } catch (ParserLogException plx) {
+    	  parseError = "ParserLogException";
          throw new CompileException(plx);
       } catch (ParserCreationException pcx) {
+    	  parseError = "ParseCreationException";
          throw new CompileException(pcx);
       }
    }

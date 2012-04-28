@@ -24,27 +24,31 @@
  */
 package tidal.tern;
 
-import android.os.Handler;
-import android.os.Message;
-import android.view.View;
-import android.view.MotionEvent;
+import tidal.tern.compiler.CompileException;
+import tidal.tern.compiler.Program;
+import tidal.tern.compiler.TangibleCompiler;
+import tidal.tern.compiler.TextCompiler;
+import tidal.tern.rt.Debugger;
+import tidal.tern.rt.Interpreter;
+import tidal.tern.rt.Robot;
 import android.app.ProgressDialog;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Canvas;
-import android.graphics.Bitmap;
-import android.graphics.RectF;
-import android.graphics.drawable.Drawable;
 import android.content.Context;
 import android.content.res.Resources;
-import android.media.SoundPool;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Paint.Style;
+import android.graphics.RectF;
+import android.graphics.drawable.Drawable;
 import android.media.AudioManager;
-import android.util.Log;
+import android.media.SoundPool;
+import android.os.Handler;
+import android.os.Message;
 import android.util.AttributeSet;
-
-import tidal.tern.rt.*;
-import tidal.tern.compiler.*;
-import topcodes.TopCode;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
 
 
 /**
@@ -113,6 +117,8 @@ public class ProgramView extends View implements Debugger, Runnable {
    protected TButton config;
    
    protected boolean running = false;
+   
+   protected boolean errorParse = false;
    
    public static int walk_sound;
    public static int jump_sound;
@@ -310,7 +316,17 @@ public class ProgramView extends View implements Debugger, Runnable {
    protected void finishCompile(boolean success) {
       hideProgressDialog();
       this.compiling = false;
-      if (!success) return;
+      if (!success) {
+    	  //here return error message to the user
+    	  errorParse = true;
+    	  if (running)
+   		   running = false;
+    	  
+    	  Roberto.isPlaying = false;
+    	  program = null;
+    	  repaint();
+    	  return;
+      }
       
       Log.i(TAG, "Compile Finished");
       try {
@@ -450,6 +466,22 @@ public class ProgramView extends View implements Debugger, Runnable {
          this.robot.draw(canvas); 
      }
      
+     if (errorParse) {
+    	 //display error message
+    	 
+    	 Paint font = new Paint(Paint.ANTI_ALIAS_FLAG);
+         font.setColor(Color.BLACK);
+         font.setStyle(Style.FILL);
+         font.setTextSize(25);
+         font.setTextAlign(Paint.Align.CENTER);
+         canvas.drawText("There is an error with your program,", w/2, 27, font);
+         canvas.drawText("Please edit it and try again..", w/2, 67, font);
+         
+         errorParse = false;
+         
+    	 
+     }
+     
   // Draw play control toolbox
      dw = this.play.getWidth();
      dh = this.play.getHeight();
@@ -491,6 +523,8 @@ public class ProgramView extends View implements Debugger, Runnable {
    
       
    }
+
+
 
    
    public void showProgressDialog(String message) {

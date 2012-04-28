@@ -173,13 +173,6 @@ public class Roberto implements Robot {
    }
    
    
-   public int doSit(int [] args) {
-	  ProgramView.sounds.play(ProgramView.sit_sound, 1.0f, 1.0f, 0, 0, 1.0f);
-      changePicture("sit", 1);
-      return 0;
-   }
-   
-   
    public int doYawn(int [] args) {
 	  ProgramView.sounds.play(ProgramView.yawn_sound, 1.0f, 1.0f, 0, 0, 1.0f);
       changePicture("yawn", 1);
@@ -198,6 +191,13 @@ public class Roberto implements Robot {
 	  ProgramView.sounds.play(ProgramView.spin_sound, 1.0f, 1.0f, 0, 0, 1.0f);
       changePicture("spin", 6);
       return 0;
+   }
+   
+   
+   // Used to end the program...
+   public int doSit(int [] args) {
+	   changePicture("end", 1);
+	   return 0;
    }
    
    
