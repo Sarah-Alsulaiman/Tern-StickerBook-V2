@@ -120,6 +120,8 @@ public class ProgramView extends View implements Debugger, Runnable {
    
    protected boolean errorParse = false;
    
+   protected boolean emptyProgram = false;
+   
    public static int walk_sound;
    public static int jump_sound;
    public static int spin_sound;
@@ -316,6 +318,7 @@ public class ProgramView extends View implements Debugger, Runnable {
    protected void finishCompile(boolean success) {
       hideProgressDialog();
       this.compiling = false;
+      
       if (!success) {
     	  //here return error message to the user
     	  errorParse = true;
@@ -329,6 +332,13 @@ public class ProgramView extends View implements Debugger, Runnable {
       }
       
       Log.i(TAG, "Compile Finished");
+      
+      if (program.isEmpty()) {
+    	  Log.i(TAG, "empty program");
+    	  this.emptyProgram = true;
+    	  repaint();
+      }
+    	  
       try {
          interp.stop();
          interp.clear();
@@ -378,148 +388,183 @@ public class ProgramView extends View implements Debugger, Runnable {
 
       // clear background 
       canvas.drawRGB(210, 210, 210);
-      
-     if (!running) {
-    	 // draw logo
-         dw = logo.getIntrinsicWidth();
-         dh = logo.getIntrinsicHeight();
-         ds = Math.min(0.8f, 0.8f * w / dw);
-         dw *= ds;
-         dh *= ds;
-         dx = w/2 - dw/2;
-         dy = h/2 - dh/2;
-         logo.setBounds(dx, dy, dx + dw, dy + dh);
-         logo.draw(canvas);
-         
-         /**
-         // draw message for current statement      
-         if (message != null && bitmap != null) {
-            Paint font = new Paint(Paint.ANTI_ALIAS_FLAG);
-            font.setColor(Color.BLACK);
-            font.setStyle(Style.FILL);
-            font.setTextSize(30);
-            font.setTextAlign(Paint.Align.CENTER);
-            canvas.drawText(this.message, w/2, 27, font);
-         }
-         
-         // Draw program bitmap with debug info
-         if (bitmap != null) {
-            dw = bitmap.getWidth();
-            dh = bitmap.getHeight();
-            ds = ((float)h / dh) * 0.85f;
-            dw *= ds;
-            dh *= ds;
-            dx = w/2 - dw/2;
-            dy = h/2 - dh/2;
-
-            RectF dest = new RectF(dx, dy, dx + dw, dy + dh);
-            canvas.drawBitmap(bitmap, null, dest, null);
-         }
-         
-         // Draw debug info for the program
-         if (program != null) {
-            canvas.save();
-            canvas.translate(w/2 - dw/2, h/2 - dh/2);
-            canvas.scale(ds, ds, 0, 0);
-            for (Statement s : program.getStatements()) {
-               TopCode top = new TopCode(s.getTopCode());
-               if (s.getCompileID() == trace_id) {
-                  top.setDiameter( top.getDiameter() * 2.5f );
-               } else {
-                  top.setDiameter( top.getDiameter() * 1.5f );
-               }
-               top.draw(canvas);
-            }
-            canvas.restore();
-         }*/
-         
-         
-         
-         // Draw CAMERA button
-         dw = this.camera.getWidth();
-         dh = this.camera.getHeight();
-         this.camera.setLocation(w - dw - 12, h - dh - 12);
-         this.camera.setEnabled( !compiling );
-         this.camera.draw(canvas);
-         
-         // Draw GALLERY button
-         dx = w - gallery.getWidth() - camera.getWidth() - 36;
-         dy = h - gallery.getHeight() - 5;
-         this.gallery.setLocation(dx, dy);
-         this.gallery.setEnabled( !compiling );
-         this.gallery.draw(canvas);
-
-         // Draw CONFIG button 
-         this.config.setLocation(3, h - config.getHeight() - 3);
-         this.config.setEnabled( true );
-         //this.config.setUpImage(
-         //      getResources(),
-         //      robot.isConnected() ? R.drawable.config : R.drawable.config_off );
-         this.config.draw(canvas); 
-    	 
-     }
      
-     
-     else {
-    	 
-    	// Draw robot
-         this.robot.draw(canvas); 
-     }
-     
-     if (errorParse) {
-    	 //display error message
-    	 
-    	 Paint font = new Paint(Paint.ANTI_ALIAS_FLAG);
-         font.setColor(Color.BLACK);
-         font.setStyle(Style.FILL);
-         font.setTextSize(25);
-         font.setTextAlign(Paint.Align.CENTER);
-         canvas.drawText("There is an error with your program,", w/2, 27, font);
-         canvas.drawText("Please edit it and try again..", w/2, 67, font);
-         
-         errorParse = false;
-         
-    	 
-     }
-     
-  // Draw play control toolbox
-     dw = this.play.getWidth();
-     dh = this.play.getHeight();
-     this.play.setLocation(w/2 + 5, h - dh - 15);
-     this.pause.setLocation(w/2 + 5, h - dh - 15);
-     this.restart.setLocation(w/2 - dw - 5, h - dh - 15);
-
-     // Draw toolbox border
-     if (program != null && bitmap != null) {
-        dx = w/2 - dw - 20;
-        dy = h - dh - 25;
-        dw = this.play.getWidth() * 2 + 40;
-        dh = this.play.getHeight() + 20;
-        RectF toolbox = new RectF(dx, dy, dx + dw, dy + dh);
-        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        paint.setColor(Color.WHITE);
-        paint.setStyle(Paint.Style.FILL);
-        canvas.drawRoundRect(toolbox, 10, 10, paint);
-        paint.setColor(Color.BLACK);
-        paint.setStyle(Paint.Style.STROKE);
-        canvas.drawRoundRect(toolbox, 10, 10, paint);
+      if (this.emptyProgram) {
+     	 
+     	 Paint font = new Paint(Paint.ANTI_ALIAS_FLAG);
+          font.setColor(Color.BLACK);
+          font.setStyle(Style.FILL);
+          font.setTextSize(23);
+          font.setTextAlign(Paint.Align.CENTER);
+          canvas.drawText("There was an error reading your program,", w/2, 27, font);
+          canvas.drawText("Please try again..", w/2, 67, font);
+          
+          // Draw CAMERA button
+          dw = this.camera.getWidth();
+          dh = this.camera.getHeight();
+          this.camera.setLocation(w - dw - 12, h - dh - 12);
+          this.camera.setEnabled( true );
+          this.camera.draw(canvas);
+          
+          // Draw GALLERY button
+          dx = w - gallery.getWidth() - camera.getWidth() - 36;
+          dy = h - gallery.getHeight() - 5;
+          this.gallery.setLocation(dx, dy);
+          this.gallery.setEnabled( true );
+          this.gallery.draw(canvas);
+          
+          this.emptyProgram = false;
+     	 
+     	 
       }
       
-      this.play.setEnabled( false );
-      this.pause.setEnabled( false );
-      this.restart.setEnabled( false );
-    
-     if (program != null && bitmap != null) {
-         this.restart.enable();
-         this.restart.draw(canvas);
-         if (interp.isPaused() || interp.isStopped()) {
-            this.play.enable();
-            this.play.draw(canvas);
-         } else {
-            this.pause.enable();
-            this.pause.draw(canvas);
-         }
+      else {
+    	  
+    	  if (!running) {
+    	    	 // draw logo
+    	         dw = logo.getIntrinsicWidth();
+    	         dh = logo.getIntrinsicHeight();
+    	         ds = Math.min(0.8f, 0.8f * w / dw);
+    	         dw *= ds;
+    	         dh *= ds;
+    	         dx = w/2 - dw/2;
+    	         dy = h/2 - dh/2;
+    	         logo.setBounds(dx, dy, dx + dw, dy + dh);
+    	         logo.draw(canvas);
+    	         
+    	         /**
+    	         // draw message for current statement      
+    	         if (message != null && bitmap != null) {
+    	            Paint font = new Paint(Paint.ANTI_ALIAS_FLAG);
+    	            font.setColor(Color.BLACK);
+    	            font.setStyle(Style.FILL);
+    	            font.setTextSize(30);
+    	            font.setTextAlign(Paint.Align.CENTER);
+    	            canvas.drawText(this.message, w/2, 27, font);
+    	         }
+    	         
+    	         // Draw program bitmap with debug info
+    	         if (bitmap != null) {
+    	            dw = bitmap.getWidth();
+    	            dh = bitmap.getHeight();
+    	            ds = ((float)h / dh) * 0.85f;
+    	            dw *= ds;
+    	            dh *= ds;
+    	            dx = w/2 - dw/2;
+    	            dy = h/2 - dh/2;
+
+    	            RectF dest = new RectF(dx, dy, dx + dw, dy + dh);
+    	            canvas.drawBitmap(bitmap, null, dest, null);
+    	         }
+    	         
+    	         // Draw debug info for the program
+    	         if (program != null) {
+    	            canvas.save();
+    	            canvas.translate(w/2 - dw/2, h/2 - dh/2);
+    	            canvas.scale(ds, ds, 0, 0);
+    	            for (Statement s : program.getStatements()) {
+    	               TopCode top = new TopCode(s.getTopCode());
+    	               if (s.getCompileID() == trace_id) {
+    	                  top.setDiameter( top.getDiameter() * 2.5f );
+    	               } else {
+    	                  top.setDiameter( top.getDiameter() * 1.5f );
+    	               }
+    	               top.draw(canvas);
+    	            }
+    	            canvas.restore();
+    	         }*/
+    	         
+    	         
+    	         
+    	         // Draw CAMERA button
+    	         dw = this.camera.getWidth();
+    	         dh = this.camera.getHeight();
+    	         this.camera.setLocation(w - dw - 12, h - dh - 12);
+    	         this.camera.setEnabled( !compiling );
+    	         this.camera.draw(canvas);
+    	         
+    	         // Draw GALLERY button
+    	         dx = w - gallery.getWidth() - camera.getWidth() - 36;
+    	         dy = h - gallery.getHeight() - 5;
+    	         this.gallery.setLocation(dx, dy);
+    	         this.gallery.setEnabled( !compiling );
+    	         this.gallery.draw(canvas);
+
+    	         // Draw CONFIG button 
+    	         this.config.setLocation(3, h - config.getHeight() - 3);
+    	         this.config.setEnabled( true );
+    	         //this.config.setUpImage(
+    	         //      getResources(),
+    	         //      robot.isConnected() ? R.drawable.config : R.drawable.config_off );
+    	         this.config.draw(canvas); 
+    	    	 
+    	     }
+    	     
+    	     
+    	     else {
+    	    	 
+    	    	// Draw robot
+    	         this.robot.draw(canvas); 
+    	     }
+    	     
+    	     if (errorParse) {
+    	    	 //display error message
+    	    	 
+    	    	 Paint font = new Paint(Paint.ANTI_ALIAS_FLAG);
+    	         font.setColor(Color.BLACK);
+    	         font.setStyle(Style.FILL);
+    	         font.setTextSize(25);
+    	         font.setTextAlign(Paint.Align.CENTER);
+    	         canvas.drawText("There is an error with your program,", w/2, 27, font);
+    	         canvas.drawText("Please edit it and try again..", w/2, 67, font);
+    	         
+    	         errorParse = false;
+    	         
+    	    	 
+    	     }
+    	     
+    	  // Draw play control toolbox
+    	     dw = this.play.getWidth();
+    	     dh = this.play.getHeight();
+    	     this.play.setLocation(w/2 + 5, h - dh - 15);
+    	     this.pause.setLocation(w/2 + 5, h - dh - 15);
+    	     this.restart.setLocation(w/2 - dw - 5, h - dh - 15);
+
+    	     // Draw toolbox border
+    	     if (program != null && bitmap != null) {
+    	        dx = w/2 - dw - 20;
+    	        dy = h - dh - 25;
+    	        dw = this.play.getWidth() * 2 + 40;
+    	        dh = this.play.getHeight() + 20;
+    	        RectF toolbox = new RectF(dx, dy, dx + dw, dy + dh);
+    	        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+    	        paint.setColor(Color.WHITE);
+    	        paint.setStyle(Paint.Style.FILL);
+    	        canvas.drawRoundRect(toolbox, 10, 10, paint);
+    	        paint.setColor(Color.BLACK);
+    	        paint.setStyle(Paint.Style.STROKE);
+    	        canvas.drawRoundRect(toolbox, 10, 10, paint);
+    	      }
+    	      
+    	      this.play.setEnabled( false );
+    	      this.pause.setEnabled( false );
+    	      this.restart.setEnabled( false );
+    	    
+    	     if (program != null && bitmap != null) {
+    	         this.restart.enable();
+    	         this.restart.draw(canvas);
+    	         if (interp.isPaused() || interp.isStopped()) {
+    	            this.play.enable();
+    	            this.play.draw(canvas);
+    	         } else {
+    	            this.pause.enable();
+    	            this.pause.draw(canvas);
+    	         }
+    	      }
+    	  
+    	  
       }
+      
    
       
    }
