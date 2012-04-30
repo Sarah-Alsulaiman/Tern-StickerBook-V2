@@ -505,6 +505,45 @@ public class ProgramView extends View implements Debugger, Runnable {
     	    	 
     	    	// Draw robot
     	         this.robot.draw(canvas); 
+    	         
+    	         // Draw play control toolbox
+        	     dw = this.play.getWidth();
+        	     dh = this.play.getHeight();
+        	     this.play.setLocation(w/2 + 5, h - dh - 15);
+        	     this.pause.setLocation(w/2 + 5, h - dh - 15);
+        	     this.restart.setLocation(w/2 - dw - 5, h - dh - 15);
+
+        	     // Draw toolbox border
+        	     if (program != null && bitmap != null) {
+        	        dx = w/2 - dw - 20;
+        	        dy = h - dh - 25;
+        	        dw = this.play.getWidth() * 2 + 40;
+        	        dh = this.play.getHeight() + 20;
+        	        RectF toolbox = new RectF(dx, dy, dx + dw, dy + dh);
+        	        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        	        paint.setColor(Color.WHITE);
+        	        paint.setStyle(Paint.Style.FILL);
+        	        canvas.drawRoundRect(toolbox, 10, 10, paint);
+        	        paint.setColor(Color.BLACK);
+        	        paint.setStyle(Paint.Style.STROKE);
+        	        canvas.drawRoundRect(toolbox, 10, 10, paint);
+        	      }
+        	      
+        	      this.play.setEnabled( false );
+        	      this.pause.setEnabled( false );
+        	      this.restart.setEnabled( false );
+        	    
+        	     if (program != null && bitmap != null) {
+        	         this.restart.enable();
+        	         this.restart.draw(canvas);
+        	         if (interp.isPaused() || interp.isStopped()) {
+        	            this.play.enable();
+        	            this.play.draw(canvas);
+        	         } else {
+        	            this.pause.enable();
+        	            this.pause.draw(canvas);
+        	         }
+        	      }
     	     }
     	     
     	     if (errorParse) {
@@ -523,44 +562,7 @@ public class ProgramView extends View implements Debugger, Runnable {
     	    	 
     	     }
     	     
-    	  // Draw play control toolbox
-    	     dw = this.play.getWidth();
-    	     dh = this.play.getHeight();
-    	     this.play.setLocation(w/2 + 5, h - dh - 15);
-    	     this.pause.setLocation(w/2 + 5, h - dh - 15);
-    	     this.restart.setLocation(w/2 - dw - 5, h - dh - 15);
-
-    	     // Draw toolbox border
-    	     if (program != null && bitmap != null) {
-    	        dx = w/2 - dw - 20;
-    	        dy = h - dh - 25;
-    	        dw = this.play.getWidth() * 2 + 40;
-    	        dh = this.play.getHeight() + 20;
-    	        RectF toolbox = new RectF(dx, dy, dx + dw, dy + dh);
-    	        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-    	        paint.setColor(Color.WHITE);
-    	        paint.setStyle(Paint.Style.FILL);
-    	        canvas.drawRoundRect(toolbox, 10, 10, paint);
-    	        paint.setColor(Color.BLACK);
-    	        paint.setStyle(Paint.Style.STROKE);
-    	        canvas.drawRoundRect(toolbox, 10, 10, paint);
-    	      }
-    	      
-    	      this.play.setEnabled( false );
-    	      this.pause.setEnabled( false );
-    	      this.restart.setEnabled( false );
-    	    
-    	     if (program != null && bitmap != null) {
-    	         this.restart.enable();
-    	         this.restart.draw(canvas);
-    	         if (interp.isPaused() || interp.isStopped()) {
-    	            this.play.enable();
-    	            this.play.draw(canvas);
-    	         } else {
-    	            this.pause.enable();
-    	            this.pause.draw(canvas);
-    	         }
-    	      }
+    	 
     	  
     	  
       }
