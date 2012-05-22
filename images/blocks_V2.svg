@@ -24,7 +24,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="0.99999999"
      inkscape:cx="468.34419"
-     inkscape:cy="413.37089"
+     inkscape:cy="228.14557"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1333,7 +1333,7 @@
            id="tspan6264-4-0-9-4-9"
            x="150.25266"
            y="856.83508"
-           style="font-size:12px;font-style:italic;font-variant:normal;font-weight:900;font-stretch:normal;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;font-family:Cooper Std;-inkscape-font-specification:Cooper Std Heavy Italic">SIT</tspan></text>
+           style="font-size:12px;font-style:italic;font-variant:normal;font-weight:900;font-stretch:normal;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;font-family:Cooper Std;-inkscape-font-specification:Cooper Std Heavy Italic">YAWN</tspan></text>
       <path
          sodipodi:type="arc"
          style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
@@ -3230,7 +3230,7 @@
            id="tspan6264-4-0-9-4-9-4"
            x="150.25266"
            y="856.83508"
-           style="font-size:12px;font-style:italic;font-variant:normal;font-weight:900;font-stretch:normal;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;font-family:Cooper Std;-inkscape-font-specification:Cooper Std Heavy Italic">SIT</tspan></text>
+           style="font-size:12px;font-style:italic;font-variant:normal;font-weight:900;font-stretch:normal;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;font-family:Cooper Std;-inkscape-font-specification:Cooper Std Heavy Italic">YAWN</tspan></text>
       <path
          sodipodi:type="arc"
          style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
@@ -4750,7 +4750,7 @@
            id="tspan6264-4-0-9-4-9-4-9"
            x="150.25266"
            y="856.83508"
-           style="font-size:12px;font-style:italic;font-variant:normal;font-weight:900;font-stretch:normal;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;font-family:Cooper Std;-inkscape-font-specification:Cooper Std Heavy Italic">SIT</tspan></text>
+           style="font-size:12px;font-style:italic;font-variant:normal;font-weight:900;font-stretch:normal;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;font-family:Cooper Std;-inkscape-font-specification:Cooper Std Heavy Italic">YAWN</tspan></text>
       <path
          sodipodi:type="arc"
          style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
@@ -7598,7 +7598,7 @@
       <g
          transform="translate(-31.941125,163.04877)"
          id="g16015-3-6-2"
-         style="fill:#800080">
+         style="fill:#ff6600">
         <path
            transform="translate(-87.681241,-25.886127)"
            d="m 560.73568,602.0119 c 0,16.20676 -13.13818,29.34493 -29.34493,29.34493 -16.20676,0 -29.34493,-13.13817 -29.34493,-29.34493 0,-16.20676 13.13817,-29.34493 29.34493,-29.34493 16.20675,0 29.34493,13.13817 29.34493,29.34493 z"
@@ -7607,7 +7607,7 @@
            sodipodi:cy="602.0119"
            sodipodi:cx="531.39075"
            id="path15932-8-1-0"
-           style="opacity:0.80172412;fill:#800080;fill-opacity:0.59607843;stroke:none"
+           style="opacity:0.80172412000000004;fill:#ff6600;fill-opacity:0.59607843000000005;stroke:none"
            sodipodi:type="arc" />
         <path
            transform="matrix(0.89776768,0,0,0.89776768,-33.355934,35.658935)"
@@ -7617,7 +7617,7 @@
            sodipodi:cy="602.0119"
            sodipodi:cx="531.39075"
            id="path15932-1-0-8-9"
-           style="fill:#800080;fill-opacity:0.59607843;stroke:none"
+           style="fill:#ff6600;fill-opacity:0.59607843000000005;stroke:none"
            sodipodi:type="arc" />
         <path
            transform="matrix(0.38660608,0,0,0.38660608,238.27054,353.38424)"
@@ -7627,14 +7627,14 @@
            sodipodi:cy="602.0119"
            sodipodi:cx="531.39075"
            id="path15932-1-3-9-4-7"
-           style="fill:#800080;fill-opacity:1;stroke:none"
+           style="fill:#ff6600;fill-opacity:1;stroke:none"
            sodipodi:type="arc" />
         <text
            sodipodi:linespacing="125%"
            id="text6262-8-0-9-9-6-5-2-3-9-3"
            y="567.06219"
            x="442.78925"
-           style="font-size:19.96351242px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#800080;fill-opacity:0.87999998;stroke:none;font-family:Bitstream Vera Sans"
+           style="font-size:19.96351242000000100px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ff6600;fill-opacity:0.87999998000000001;stroke:none;font-family:Bitstream Vera Sans"
            xml:space="preserve"><tspan
              style="font-size:12px;font-style:italic;font-variant:normal;font-weight:900;font-stretch:normal;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;font-family:Cooper Std;-inkscape-font-specification:Cooper Std Heavy Italic"
              y="567.06219"
@@ -7772,7 +7772,7 @@
       <g
          transform="translate(-32.941125,163.04877)"
          id="g16015-4-7"
-         style="fill:#800080">
+         style="fill:#ff6600">
         <path
            transform="translate(-87.681241,-25.886127)"
            d="m 560.73568,602.0119 c 0,16.20676 -13.13818,29.34493 -29.34493,29.34493 -16.20676,0 -29.34493,-13.13817 -29.34493,-29.34493 0,-16.20676 13.13817,-29.34493 29.34493,-29.34493 16.20675,0 29.34493,13.13817 29.34493,29.34493 z"
@@ -7781,7 +7781,7 @@
            sodipodi:cy="602.0119"
            sodipodi:cx="531.39075"
            id="path15932-9-7"
-           style="opacity:0.80172412;fill:#800080;fill-opacity:0.59607843;stroke:none"
+           style="opacity:0.80172412000000004;fill:#ff6600;fill-opacity:0.59607843000000005;stroke:none"
            sodipodi:type="arc" />
         <path
            transform="matrix(0.89776768,0,0,0.89776768,-33.355934,35.658935)"
@@ -7791,7 +7791,7 @@
            sodipodi:cy="602.0119"
            sodipodi:cx="531.39075"
            id="path15932-1-5-7"
-           style="fill:#800080;fill-opacity:0.59607843;stroke:none"
+           style="fill:#ff6600;fill-opacity:0.59607843000000005;stroke:none"
            sodipodi:type="arc" />
         <path
            transform="matrix(0.38660608,0,0,0.38660608,238.27054,353.38424)"
@@ -7801,14 +7801,14 @@
            sodipodi:cy="602.0119"
            sodipodi:cx="531.39075"
            id="path15932-1-3-4-3"
-           style="fill:#800080;fill-opacity:1;stroke:none"
+           style="fill:#ff6600;fill-opacity:1;stroke:none"
            sodipodi:type="arc" />
         <text
            sodipodi:linespacing="125%"
            id="text6262-8-0-9-9-6-5-2-7-3"
            y="567.06219"
            x="442.78925"
-           style="font-size:19.96351242px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#800080;fill-opacity:0.87999998;stroke:none;font-family:Bitstream Vera Sans"
+           style="font-size:19.96351242000000100px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ff6600;fill-opacity:0.87999998000000001;stroke:none;font-family:Bitstream Vera Sans"
            xml:space="preserve"><tspan
              style="font-size:12px;font-style:italic;font-variant:normal;font-weight:900;font-stretch:normal;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;font-family:Cooper Std;-inkscape-font-specification:Cooper Std Heavy Italic"
              y="567.06219"
@@ -7943,7 +7943,7 @@
        sodipodi:cy="602.0119"
        sodipodi:cx="531.39075"
        id="path15932-9-8"
-       style="opacity:0.80172412000000004;fill:#800080;fill-opacity:0.59607843000000005;stroke:none"
+       style="opacity:0.80172412000000004;fill:#ff6600;fill-opacity:0.59607843000000005;stroke:none"
        sodipodi:type="arc" />
     <path
        transform="matrix(0.38660608,0,0,0.38660608,-139.43897,792.62064)"
@@ -7959,7 +7959,7 @@
        id="g20030">
       <path
          sodipodi:type="arc"
-         style="fill:#800080;fill-opacity:0.59607843000000005;stroke:none"
+         style="fill:#ff6600;fill-opacity:0.59607843000000005;stroke:none"
          id="path15932-1-5-8"
          sodipodi:cx="531.39075"
          sodipodi:cy="602.0119"
@@ -8116,7 +8116,7 @@
        sodipodi:cy="602.0119"
        sodipodi:cx="531.39075"
        id="path15932-8-1-0-7"
-       style="opacity:0.80172412;fill:#800080;fill-opacity:0.59607843;stroke:none"
+       style="opacity:0.80172412000000004;fill:#ff6600;fill-opacity:0.59607843000000005;stroke:none"
        sodipodi:type="arc" />
     <path
        transform="matrix(0.89776768,0,0,0.89776768,-345.06543,469.89533)"
@@ -8126,7 +8126,7 @@
        sodipodi:cy="602.0119"
        sodipodi:cx="531.39075"
        id="path15932-1-0-8-9-3"
-       style="fill:#800080;fill-opacity:0.59607843;stroke:none"
+       style="fill:#ff6600;fill-opacity:0.59607843000000005;stroke:none"
        sodipodi:type="arc" />
     <text
        sodipodi:linespacing="125%"
