@@ -23,8 +23,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.99999999"
-     inkscape:cx="468.34419"
-     inkscape:cy="228.14557"
+     inkscape:cx="301.56866"
+     inkscape:cy="199.64937"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -8758,6 +8758,100 @@
            sodipodi:cy="100.8"
            sodipodi:rx="6.75"
            sodipodi:ry="6.75" />
+      </g>
+    </g>
+    <g
+       id="g19023-4-1"
+       transform="translate(-175.76838,259.18763)"
+       style="fill:#00aa88">
+      <g
+         transform="translate(-33.941125,164.04877)"
+         id="g16015-8-7"
+         style="fill:#00aa88">
+        <path
+           transform="translate(-87.681241,-25.886127)"
+           d="m 560.73568,602.0119 c 0,16.20676 -13.13818,29.34493 -29.34493,29.34493 -16.20676,0 -29.34493,-13.13817 -29.34493,-29.34493 0,-16.20676 13.13817,-29.34493 29.34493,-29.34493 16.20675,0 29.34493,13.13817 29.34493,29.34493 z"
+           sodipodi:ry="29.344931"
+           sodipodi:rx="29.344931"
+           sodipodi:cy="602.0119"
+           sodipodi:cx="531.39075"
+           id="path15932-6-4"
+           style="opacity:0.80172412;fill:#00aa88;fill-opacity:0.59607843;stroke:none"
+           sodipodi:type="arc" />
+        <path
+           transform="matrix(0.89776768,0,0,0.89776768,-33.355934,35.658935)"
+           d="m 560.73568,602.0119 c 0,16.20676 -13.13818,29.34493 -29.34493,29.34493 -16.20676,0 -29.34493,-13.13817 -29.34493,-29.34493 0,-16.20676 13.13817,-29.34493 29.34493,-29.34493 16.20675,0 29.34493,13.13817 29.34493,29.34493 z"
+           sodipodi:ry="29.344931"
+           sodipodi:rx="29.344931"
+           sodipodi:cy="602.0119"
+           sodipodi:cx="531.39075"
+           id="path15932-1-4-0"
+           style="fill:#00aa88;fill-opacity:0.59607843;stroke:none"
+           sodipodi:type="arc" />
+        <text
+           sodipodi:linespacing="125%"
+           id="text6262-8-0-9-9-6-5-2-8-4"
+           y="571.06219"
+           x="442.78925"
+           style="font-size:19.96351242px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00aa88;fill-opacity:0.87999998;stroke:none;font-family:Bitstream Vera Sans"
+           xml:space="preserve"><tspan
+             style="font-size:12px;font-style:italic;font-variant:normal;font-weight:900;font-stretch:normal;text-align:center;text-anchor:middle;fill:#d5ffe6;fill-opacity:1;font-family:Cooper Std;-inkscape-font-specification:Cooper Std Heavy Italic"
+             y="571.06219"
+             x="442.78925"
+             id="tspan6264-4-0-9-4-9-8-0-9-8"
+             sodipodi:role="line">FOR</tspan><tspan
+             style="font-size:12px;font-style:italic;font-variant:normal;font-weight:900;font-stretch:normal;text-align:center;text-anchor:middle;fill:#d5ffe6;fill-opacity:1;font-family:Cooper Std;-inkscape-font-specification:Cooper Std Heavy Italic"
+             y="586.06219"
+             x="442.78925"
+             sodipodi:role="line"
+             id="tspan5794">EVER</tspan></text>
+      </g>
+    </g>
+    <g
+       id="g19023-4-1-1"
+       transform="translate(-111.76838,260.18763)"
+       style="fill:#00aa88">
+      <g
+         transform="translate(-33.941125,164.04877)"
+         id="g16015-8-7-6"
+         style="fill:#00aa88">
+        <path
+           transform="translate(-87.681241,-25.886127)"
+           d="m 560.73568,602.0119 c 0,16.20676 -13.13818,29.34493 -29.34493,29.34493 -16.20676,0 -29.34493,-13.13817 -29.34493,-29.34493 0,-16.20676 13.13817,-29.34493 29.34493,-29.34493 16.20675,0 29.34493,13.13817 29.34493,29.34493 z"
+           sodipodi:ry="29.344931"
+           sodipodi:rx="29.344931"
+           sodipodi:cy="602.0119"
+           sodipodi:cx="531.39075"
+           id="path15932-6-4-8"
+           style="opacity:0.80172412;fill:#00aa88;fill-opacity:0.59607843;stroke:none"
+           sodipodi:type="arc" />
+        <path
+           transform="matrix(0.89776768,0,0,0.89776768,-33.355934,35.658935)"
+           d="m 560.73568,602.0119 c 0,16.20676 -13.13818,29.34493 -29.34493,29.34493 -16.20676,0 -29.34493,-13.13817 -29.34493,-29.34493 0,-16.20676 13.13817,-29.34493 29.34493,-29.34493 16.20675,0 29.34493,13.13817 29.34493,29.34493 z"
+           sodipodi:ry="29.344931"
+           sodipodi:rx="29.344931"
+           sodipodi:cy="602.0119"
+           sodipodi:cx="531.39075"
+           id="path15932-1-4-0-5"
+           style="fill:#00aa88;fill-opacity:0.59607843;stroke:none"
+           sodipodi:type="arc" />
+        <text
+           sodipodi:linespacing="125%"
+           id="text6262-8-0-9-9-6-5-2-8-4-7"
+           y="571.06219"
+           x="442.78925"
+           style="font-size:19.96351242px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#00aa88;fill-opacity:0.87999998;stroke:none;font-family:Bitstream Vera Sans"
+           xml:space="preserve"><tspan
+             style="font-size:12px;font-style:italic;font-variant:normal;font-weight:900;font-stretch:normal;text-align:center;text-anchor:middle;fill:#d5ffe6;fill-opacity:1;font-family:Cooper Std;-inkscape-font-specification:Cooper Std Heavy Italic"
+             y="571.06219"
+             x="442.78925"
+             id="tspan6264-4-0-9-4-9-8-0-9-8-6"
+             sodipodi:role="line">FOR</tspan><tspan
+             style="font-size:12px;font-style:italic;font-variant:normal;font-weight:900;font-stretch:normal;text-align:center;text-anchor:middle;fill:#d5ffe6;fill-opacity:1;font-family:Cooper Std;-inkscape-font-specification:Cooper Std Heavy Italic"
+             y="586.06219"
+             x="442.78925"
+             sodipodi:role="line"
+             id="tspan5794-1">EVER</tspan></text>
       </g>
     </g>
   </g>
