@@ -22,6 +22,8 @@ package tidal.tern.language;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Map;
+
+import android.util.Log;
 import tidal.tern.compiler.Statement;
 import tidal.tern.compiler.CompileException;
 import topcodes.TopCode;
@@ -56,6 +58,9 @@ public class Begin extends Statement {
    
    public void compile(PrintWriter out, boolean debug) throws CompileException {
       Statement.NEST = 0;
+      this.name = "Begin";
+      this.setCompiled();
+      
       if (!hasConnection("param")) {
          out.println("process main:");
          out.println("{");

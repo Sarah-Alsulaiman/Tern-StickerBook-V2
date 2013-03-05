@@ -66,7 +66,8 @@ public class TextCompiler extends TernAnalyzer {
    }
    
    
-   public Reader compile(Reader in) throws CompileException {
+   public Reader compile(Reader in) throws CompileException 
+   {
       try {
          this.out = new StringWriter();
          this.label_gen = 0;

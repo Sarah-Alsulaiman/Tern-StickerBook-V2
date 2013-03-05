@@ -113,6 +113,10 @@ public class StatementFactory {
       s.setName(xml.getAttributeValue(null, "name"));
       s.setTopCode(new TopCode(xml.getAttributeIntValue(null, "code", 0)));
       s.setStartStatement(toBoolean(xml.getAttributeValue(null, "start")));
+      s.setSLoopStatement(toBoolean(xml.getAttributeValue(null, "s_loop")));
+      s.setELoopStatement(toBoolean(xml.getAttributeValue(null, "e_loop")));
+      s.setWaitStatement(toBoolean(xml.getAttributeValue(null, "wait")));
+      s.setParamStatement(toBoolean(xml.getAttributeValue(null, "parameter")));
       return s;
    }
    

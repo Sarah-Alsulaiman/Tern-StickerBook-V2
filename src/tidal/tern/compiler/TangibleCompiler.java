@@ -24,20 +24,19 @@
  */
 package tidal.tern.compiler;
 
-import java.util.Map;
-import java.util.List;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.util.List;
+import java.util.Map;
 
-
-import android.util.Log;
-import android.graphics.Bitmap;
+import tidal.tern.ProgramView;
+import topcodes.Scanner;
+import topcodes.TopCode;
 import android.content.res.Resources;
-import android.content.res.XmlResourceParser;
-
-import topcodes.*;
+import android.graphics.Bitmap;
+import android.util.Log;
 
 
 /**
@@ -60,6 +59,8 @@ public class TangibleCompiler {
    
    /** Redefined skills */
    protected Map<String, String> skills;
+   
+   protected ProgramView view;
    
    
    public TangibleCompiler(Resources res, int statements, int driver) {
@@ -89,13 +90,13 @@ public class TangibleCompiler {
    
 
 /**
- * Tangible compile function: generate a program from a bitmap image
+ * Tangible collect function: collect the complete set of topCodes from a bitmap image
  */
-   public Program compile(Bitmap image) throws CompileException {
+   
+   public Program collect(Bitmap image) throws CompileException {
       
       Program program = new Program();
 
-      
       //-----------------------------------------------------------
       // 1. Create a list of topcodes from the bitmap image
       //-----------------------------------------------------------
@@ -113,6 +114,15 @@ public class TangibleCompiler {
          }
       }
 
+      return program;
+   }
+   
+   /**
+    * Tangible compile function: generate and connect a syntactically valid program from the collection
+    */
+      
+   
+   public Program compile(Program program) throws CompileException {
 
       //-----------------------------------------------------------
       // 3. Connect chains of statements together
@@ -156,15 +166,15 @@ public class TangibleCompiler {
       tcode += sw.toString();
       program.setTextCode(tcode);
       Log.i(TAG, tcode);
-
       
       //-----------------------------------------------------------
       // 6. Convert the text-based code to assembly code
       //-----------------------------------------------------------
       String pcode = tcompiler.compile(tcode);
       program.setAssemblyCode(pcode);
-      Log.i(TAG, pcode);
+      //Log.i(TAG, pcode);
 
       return program;
    }
+   
 }

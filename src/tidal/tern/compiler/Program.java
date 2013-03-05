@@ -95,6 +95,10 @@ public class Program {
       return false;
    }
    
+   public int getNumStatement() {
+	   return statements.size();
+   }
+   
    
    public String getTextCode() {
       return this.tcode;

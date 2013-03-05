@@ -27,6 +27,9 @@ package tidal.tern;
 import tidal.tern.rt.Robot;
 import android.content.res.Resources;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Paint.Style;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 
@@ -57,6 +60,8 @@ public class Roberto implements Robot {
    public static boolean tsensor = false;
    
    public static boolean isPlaying = false;
+   
+   private String text = null;
    
    private long last_tick = 0;
    
@@ -106,25 +111,66 @@ public class Roberto implements Robot {
    
    
    public void draw(Canvas canvas) {
-      
-	  if (isPlaying) {
-		  
-		  long elapsed = (System.currentTimeMillis() - last_tick);
-	      
-	      if (elapsed >= DURATION) {
-	    	  if (frame <= fcount) {
-	    		  last_tick = System.currentTimeMillis();
-	    		  frame++;
-	    	  } else {
-	    		  isPlaying = false; 
-	    	  }
-	      }
+	   
+	   if (isPlaying) { 
+		   long elapsed = (System.currentTimeMillis() - last_tick);
+		   
+	       if (elapsed >= DURATION) {
+	    	   if (frame <= fcount) {
+	    	      last_tick = System.currentTimeMillis();
+	    		   frame++;
+	    	   } else {
+	    		   isPlaying = false;
+	    	   }
+	       }
 	      
 	      drawFrame(canvas);
 	      
 		  if (frame <= fcount)
 			  view.repaint();
+	   }
+	   
+	  
+	  if (this.text != null) {
+		  int w = view.getWidth();
+	      
+	      Paint font = new Paint(Paint.ANTI_ALIAS_FLAG);
+	      font.setColor(Color.BLACK);
+	      font.setStyle(Style.FILL);
+	      font.setTextSize(25);
+	      font.setTextAlign(Paint.Align.CENTER);
+	      canvas.drawText(this.text, w/2, 27, font);
+	      
+	      this.text = null;
+		  
 	  }
+	  
+	  
+	  
+	  
+	  /**if (view.interpFinished && view.missedSticker) {
+		  
+		// clear background 
+	      canvas.drawRGB(210, 210, 210);
+		  int w = view.getWidth();
+	      int h = view.getHeight();
+	      
+	    	 Paint font = new Paint(Paint.ANTI_ALIAS_FLAG);
+	         font.setColor(Color.BLACK);
+	         font.setStyle(Style.FILL);
+	         font.setTextSize(25);
+	         font.setTextAlign(Paint.Align.CENTER);
+	         canvas.drawText("Couldn't complete,", w/2, 27, font);
+	         
+	         //if (view.stickerName != null)
+	        	// canvas.drawText("Make sure \"" +view.stickerName+ "\" sticker is aligned", w/2, 67, font);
+	         
+	        // else
+	        	 canvas.drawText("Make sure stickers are aligned", w/2, 67, font);
+	        	 
+	         canvas.drawText("and not faded, and then try again", w/2, 107, font);
+	     }//*/
+	  
    }
 
    
@@ -134,6 +180,7 @@ public class Roberto implements Robot {
       this.frame = 1;
       this.last_tick = 0;
       isPlaying = true;
+      this.text = null;
       view.repaint();
    }
    
@@ -194,8 +241,8 @@ public class Roberto implements Robot {
    }
    
    
-   // Used to end the program...
-   public int doSit(int [] args) {
+   
+   public int doEnd(int [] args) {
 	   changePicture("end", 1);
 	   return 0;
    }
@@ -205,11 +252,22 @@ public class Roberto implements Robot {
       return 0;
    }
    
+   public int doWait(int [] args) {
+	   int p = args[0];
+	   if (p == 1)
+		   this.text = "WAIT FOR TAP...";
+	   else if (p == 1000)
+		   this.text = "WAIT FOREVER...";
+	   else
+		   this.text = "WAIT FOR " + p + " SECONDS..";
+	   
+	   view.repaint();
+	   return 0;
+   }
    
    public int getTouchSensor(int [] args) {    
-	   //ProgramView.sounds.play(ProgramView.wait_sound, 1.0f, 1.0f, 0, 0, 1.0f);
 	   int result = tsensor ? 1 : 0;      
-	   tsensor = false;      
+	   tsensor = false; 
 	   return result;   
    }
 

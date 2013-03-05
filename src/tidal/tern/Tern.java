@@ -133,8 +133,13 @@ public class Tern extends Activity {
 	   Roberto.isPlaying = false;
 	   view.interp.stop();
 	   view.program = null;
+	   view.bitmap = null;
 	   view.errorParse = false;
 	   view.emptyProgram = false;
+	   view.interpFinished = false;
+	   view.stickerName = null;
+	   view.missedSticker = false;
+	   view.beginFound = false;
 	   view.repaint();
 	   
 	   return;  

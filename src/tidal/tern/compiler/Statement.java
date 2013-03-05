@@ -24,9 +24,11 @@
  */
 package tidal.tern.compiler;
 
-import java.util.List;
 import java.io.PrintWriter;
+import java.util.List;
+
 import topcodes.TopCode;
+import android.util.Log;
 
 
 /**
@@ -44,6 +46,12 @@ public class Statement {
    
    private static int COMPILE_ID = 0;
    
+   private boolean LAST = false;
+   
+   protected boolean COMPILED = false;
+   
+   protected boolean param = false;
+   
    protected static int NEST = 0;
 
 
@@ -58,6 +66,15 @@ public class Statement {
    
    /** Is this statement a start statement */
    protected boolean start;
+   
+   /** Is this statement a start loop statement */
+   protected boolean s_loop;
+   
+   /** Is this statement an end loop statement */
+   protected boolean e_loop;
+   
+   /** Is this statement a wait statement */
+   protected boolean wait;
 
    /** Statement's unique compile-time ID number */
    protected int c_id;
@@ -72,6 +89,11 @@ public class Statement {
       this.top  = null;
       this.text = "";
       this.start = false;
+      this.s_loop = false;
+      this.e_loop = false;
+      this.wait = false;
+      this.param = false;
+      this.COMPILED = false;
       this.c_id = COMPILE_ID++;
       this.connectors = new java.util.ArrayList();
    }
@@ -103,6 +125,14 @@ public class Statement {
    }
    
    
+   public boolean hasOutgoingConnection() {
+	   for (Connector c : connectors) {
+		   if (c.isOutgoing() && c.hasConnection() ) return true;
+	   }
+	   return false;
+   }
+   
+   
    public Statement getConnection(String name) {
       for (Connector c : connectors) {
          if (name.equals(c.getName())) {
@@ -113,13 +143,22 @@ public class Statement {
    }
    
    
+   public Statement getFirstOutgoingConnection() {
+	   for (Connector c : connectors) {
+		   if (c.isOutgoing()) return c.getConnection();
+	   }
+	   return null;
+   }
+   
+   
 /**
  * Translates a tangible statement into a text-based representation
  */
    public void compile(PrintWriter out, boolean debug) throws CompileException {
-      if (debug) out.println("trace " + getCompileID());
-      if (debug) out.println("print \"" + getName() + "\"");
+      //if (debug) out.println("trace " + getCompileID());
+      //if (debug) out.println("print \"" + getName() + "\"");
       out.println(this.text);
+      this.setCompiled();
       compileNext(out, debug);
    }
    
@@ -128,6 +167,10 @@ public class Statement {
       for (Connector c : connectors) {
          if (c.isOutgoing() && c.hasConnection()) {
             c.getConnection().compile(out, debug);
+         }
+         else if (c.isOutgoing()){
+        	 Log.i("Tern","couldn't complete after " + this.name);
+        	 this.LAST = true;
          }
       }
    }
@@ -143,6 +186,11 @@ public class Statement {
          s.name = this.name;
          s.text = this.text;
          s.start = this.start;
+         s.s_loop = this.s_loop;
+         s.e_loop = this.e_loop;
+         s.wait = this.wait;
+         s.param = this.param;
+         s.COMPILED = this.COMPILED;
          for (Connector c : connectors) {
             s.addConnector(c.clone(s));
          }
@@ -197,19 +245,64 @@ public class Statement {
       this.text = text;
    }
    
+   public boolean isCompiled() {
+	   return this.COMPILED;
+   }
+
+   public void setCompiled() {
+	   Log.i("Tern", this.name + " compiled successfully");
+	   this.COMPILED = true;
+   }
+   
    
    public boolean isStartStatement() {
       return this.start;
    }
    
+   public boolean isSLoopStatement() {
+	   return this.s_loop;
+   }
    
+   public boolean isELoopStatement() {
+	   return this.e_loop;
+   }
+   
+   public boolean isWaitStatement() {
+	   return this.wait;
+   }
+   
+  
    public void setStartStatement(boolean start) {
       this.start = start;
    }
    
+   public void setSLoopStatement(boolean loop) {
+	   this.s_loop = loop;
+   }
+   
+   public void setELoopStatement(boolean loop) {
+	   this.e_loop = loop;   
+   }
+   
+   public void setWaitStatement(boolean wait) {
+	   this.wait = wait;
+   }
+   
+   public void setParamStatement(boolean p) {
+	   this.param = p;
+   }
    
    public int getCompileID() {
       return this.c_id;
+   }
+   
+   
+   public boolean getLast() {
+	      return this.LAST;
+   }
+   
+   public boolean isParam() {
+	   return this.param;   
    }
    
    
